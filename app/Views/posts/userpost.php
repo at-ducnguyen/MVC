@@ -31,13 +31,13 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="text-primary" width="10%">STT</td>
+			<td class="text-primary" width="5%">STT</td>
 			<td class="text-primary" width="40%">Title</td>
 			<td class="text-primary" width="10%"> Thể loại</td>
 	
 			<td class="text-primary" width="20%">Ngày đăng</td>
 			
-			<td class="text-primary" width="20%">Action</td>
+			<td class="text-primary" width="25%">Action</td>
 		</tr>
 		<?php $i=1; ?>
 		<?php foreach($userpost as $post): ?>
@@ -48,7 +48,7 @@
 			
 			<td><?=$post['created_at'] ?></td>
 			
-			<td>
+			
 			<td>
 			<a href="edit/<?=$post['id']?>" ><button><i class="glyphicon glyphicon-edit"></i></button></a>
 			<a href="delete/<?=$post['id']?>" onclick="return ConfirmDelete()"><button><i class="glyphicon glyphicon-trash"></i></button></a>

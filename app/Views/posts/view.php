@@ -17,7 +17,7 @@
       </p>
 
       
-      <img class="img-responsive" src="/<?=$postdetail['image']; ?>" alt="">
+      <img class="img-responsive" src="/<?=$postdetail['image']; ?>" alt="Image" style="height: 400px; width: 100%">
 
       
       <br>

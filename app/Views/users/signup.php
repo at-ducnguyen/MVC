@@ -48,6 +48,69 @@
         <!-- end slide -->
     </div>
     <!-- end Page Content -->
+     <script type="text/javascript">
+ 
+    $(document).ready(function() {
+ 
+        //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
+        $("#formDemo").validate({
+                    rules: {
+                        ho: "required",
+                        ten: "required",
+                        diachi: {
+                            required: true,
+                            minlength: 2
+                        },
+                        sodienthoai: {
+                            required: true,
+                            minlength: 5
+                        },
+                        password: {
+                            required: true,
+                            minlength: 5
+                        },
+                        confirm_password: {
+                            required: true,
+                            minlength: 5,
+                            equalTo: "#password"
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        dieukhoan: "required"
+                    },
+                    messages: {
+                        ho: "Vui lòng nhập họ",
+                        ten: "Vui lòng nhập tên",
+                        diachi: {
+                            required: "Vui lòng nhập địa chỉ",
+                            minlength: "Địa chỉ ngắn vậy, chém gió ah?"
+                        },
+                        sodienthoai: {
+                            required: "Vui lòng nhập số điện thoại",
+                            minlength: "Số máy quý khách vừa nhập là số không có thực"
+                        },
+                        password: {
+                            required: 'Vui lòng nhập mật khẩu',
+                            minlength: 'Vui lòng nhập ít nhất 5 kí tự'
+                        },
+                        confirm_password: {
+                            required: 'Vui lòng nhập mật khẩu',
+                            minlength: 'Vui lòng nhập ít nhất 5 kí tự',
+                            equalTo: 'Mật khẩu không trùng'
+                        },
+                        email: {
+                            required: "Please provide a password",
+                            minlength: "Your password must be at least 5 characters long",
+                            equalTo: "Please enter the same password as above"
+                        },
+                        email: "Vui lòng nhập Email",
+                        agree: "Vui lòng đồng ý các điều khoản"
+                    }
+                });
+    });
+    </script>
 
 <div style="height: 120px"></div>
     <?php template('footer.php'); ?>

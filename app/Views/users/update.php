@@ -21,9 +21,7 @@
 							<br>
 							<div>
 				    			<label>Email</label>
-							  	<input type="email" class="form-control" placeholder="Email" name="email" value="<?=$getUser['email']?>"
-							  	disabled
-							  	>
+							  	<input type="email" class="form-control" placeholder="Email" name="email" value="<?=$getUser['email']?>">
 							</div>
 							<br>	
 							<div>
@@ -35,7 +33,7 @@
 							
 							<div>
 				    			<label>Avatar</label>
-							  	<input type="file" class="form-control" name="avatar" required>
+							  	<input type="file" class="form-control" name="avatar" required value="<?=$getUser['avatar']?>">
 							</div>
 							<br>
 							<input type="submit" class="btn btn-success" value="Cập nhật" name="update">
