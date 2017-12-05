@@ -1,0 +1,19 @@
+{
+    "name": "vietphamb./demo-mvc",
+    "description": "Demo MVC",
+    "authors": [
+        {
+            "name": "viet.pham",
+            "email": "viet.pham@asiantech.vn"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Utils/Utils.php"
+        ]
+    }
+}
