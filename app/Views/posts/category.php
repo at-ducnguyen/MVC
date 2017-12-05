@@ -88,7 +88,7 @@
           <h2 style="margin-top:0px; margin-bottom:0px;"> Kết quả</h2>
         </div>
         <div class="panel-body">
-          <p style="color: red; font-weight: bold;"><?=isset($err) ? $err : '';?></p>
+          <p style="color: red; font-weight: bold;"><?=isset($error) ? $error : '';?></p>
           <?php foreach($posts as $post): ?>
             <div class="row-item row">
               <h3>
@@ -98,7 +98,7 @@
               </h3>
               <div class="col-md-12 border-right">
                 <div class="col-md-3">
-                  <a href="chitiet.html">
+                  <a href="/posts/view/<?php echo $post['id']; ?>">
                     <img style="width: 320px; height: 150px" class="img-responsive" src="/<?=$post['image'] ?>" alt="">
                   </a>
                 </div>

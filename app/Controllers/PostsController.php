@@ -141,7 +141,7 @@ if($category==6) {
 }
 
 else {
-  $data['err'] = "Không tìm thấy yêu cầu";
+  $data['error'] = "Không tìm thấy yêu cầu";
   view('posts.category',$data);
 }
 }
@@ -159,7 +159,8 @@ public function userpost(){
   $posts = new Post();
   if (isGuest()){
     header('Location:/users/login');
-  } else {
+  } 
+  else {
   $data['userpost'] = $posts->userpost($posts->getUsername());
   view('posts.userpost',$data);
 }
@@ -167,23 +168,14 @@ public function userpost(){
 
 public function comment(){
   if(isset($_POST['comment'])){
-      if(isGuest()){
-        $data['err'] = "Vui lòng đăng nhập để gửi bình luận";
-        view('posts.view',$data);
-      }
-      else {
     $comment = new Comment();
     $data= array();
     $data['username'] = $comment->getUsername();
     $data['content'] = $_POST['content'];
-    $data['post_id'] = $_POST['post_id'];
-    dd($data);
-    // $id = $_POST['post_id'];
-    // $comment->save($data);
-    // header("Location:/posts/view/$id");
-  }
-}
-
-}
-
+    $data['post_id'] = $_POST['post_id'];    
+    $id = $_POST['post_id'];
+    $comment->save($data);
+    header("Location:/posts/view/$id");
+      }
+    }
 }

@@ -85,9 +85,6 @@ use App\Models\Model;
 
 
      
-
-
-
     if (!function_exists('config')) {
         /**
          * Debug helper function
@@ -98,3 +95,16 @@ use App\Models\Model;
             return \App\Core\Config::get($key);
         }
     }
+
+    if (!function_exists('display_errors')) {
+        /**
+         * Debug helper function
+         *
+         */
+        function display_errors()
+        {
+            error_reporting(E_ALL | E_STRICT);
+            ini_set('display_errors', 'On');
+        }
+    }
+    

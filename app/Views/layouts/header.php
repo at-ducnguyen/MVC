@@ -1,5 +1,6 @@
 <?php 
 use App\Core\Session;
+display_errors();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,12 +21,9 @@ use App\Core\Session;
   <!-- Custom CSS -->
   <link href="/css/shop-homepage.css" rel="stylesheet">
   <link href="/css/my.css" rel="stylesheet">
-
-
 </head>
 
 <body>
-
   <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">

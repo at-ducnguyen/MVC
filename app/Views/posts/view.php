@@ -31,17 +31,22 @@
 
       <hr>
       <!-- Comments Form -->
+      
       <div class="well">
         <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
         <form role="form" action="/posts/comment" method="post">
           <div class="form-group">
-            <textarea class="form-control" name="content" rows="3"></textarea>
+            <textarea class="form-control" name="content" rows="3" required oninvalid="this.setCustomValidity('Vui lòng kiểm tra thông tin trước khi gửi bình luận')"></textarea>
           </div>
           <input type="hidden" name="post_id" value="<?=$postdetail['id'];?>">
-          <input type="submit" class="btn btn-primary" value="Gửi" name="comment">
+          <?php if(!isGuest()): ?>
+          <input type="submit" class="btn btn-primary" value="Bình luận" name="comment">
         </form>
+        <?php else: ?>
+          <a href="/users/login">Vui lòng <input type="button" value="Đăng Nhập" class="btn btn-success"> để bình luận ! </a>
+          <?php endif; ?>
       </div>
-
+  
       <hr>
 
       <!-- Posted Comments -->
