@@ -11,7 +11,9 @@ include_once '../app/Views/layouts/header.php';
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="page-heading">
               <h1>Liên hệ với chúng tôi</h1>
-             
+             <?php if(isset($_POST['btn'])): ?>
+              <p class="text-success">Đã gửi thành công!</p>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -23,9 +25,6 @@ include_once '../app/Views/layouts/header.php';
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           
-          <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
-          <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
-          <!-- To umese the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
           <form method="post" action="/home/contact">
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">

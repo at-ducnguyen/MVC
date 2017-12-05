@@ -109,34 +109,34 @@ else {
 }
 
 public function category($category){
- $posts = new Post();
+ $model = new Post();
  if($category==1){
-  $data['list'] = $posts->category('Thể thao');
+  $data['posts'] = $model->category('Thể thao');
   view('posts.category',$data);
 }
 
 if($category==2){
-  $data['list'] = $posts->category('Giải trí');
+  $data['posts'] = $model->category('Giải trí');
   view('posts.category',$data);
 }
 
 if($category==3){
-  $data['list'] = $posts->category('Kinh tế');
+  $data['posts'] = $model->category('Kinh tế');
   view('posts.category',$data);
 }
 
 if($category==4){
-  $data['list'] = $posts->category('Giáo dục');
+  $data['posts'] = $model->category('Giáo dục');
   view('posts.category',$data);
 }
 
 if($category==5){
-  $data['list'] = $posts->category('Sức khỏe');
+  $data['posts'] = $model->category('Sức khỏe');
   view('posts.category',$data);
 }
 
 if($category==6) {
-  $data['list'] = $posts->category('Thế giới');
+  $data['posts'] = $model->category('Thế giới');
   view('posts.category',$data);
 }
 
@@ -177,9 +177,10 @@ public function comment(){
     $data['username'] = $comment->getUsername();
     $data['content'] = $_POST['content'];
     $data['post_id'] = $_POST['post_id'];
-    $id = $_POST['post_id'];
-    $comment->save($data);
-    header("Location:/posts/view/$id");
+    dd($data);
+    // $id = $_POST['post_id'];
+    // $comment->save($data);
+    // header("Location:/posts/view/$id");
   }
 }
 

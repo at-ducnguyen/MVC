@@ -88,25 +88,25 @@
           <h2 style="margin-top:0px; margin-bottom:0px;"> Kết quả</h2>
         </div>
         <div class="panel-body">
-          <p style="color: red; font-weight: bold;"><?=$err?></p>
-          <?php foreach($list as $key): ?>
+          <p style="color: red; font-weight: bold;"><?=isset($err) ? $err : '';?></p>
+          <?php foreach($posts as $post): ?>
             <div class="row-item row">
               <h3>
-                <a href="#"><?=$key['category'] ?></a> |
-                <small><a href="loaitin.html"><i><?='by '.$key['author']; ?></i></a></small>
+                <a href="#"><?=$post['category'] ?></a> |
+                <small><a href="loaitin.html"><i><?='by '.$post['author']; ?></i></a></small>
                 
               </h3>
               <div class="col-md-12 border-right">
                 <div class="col-md-3">
                   <a href="chitiet.html">
-                    <img style="width: 320px; height: 150px" class="img-responsive" src="/<?=$key['image'] ?>" alt="">
+                    <img style="width: 320px; height: 150px" class="img-responsive" src="/<?=$post['image'] ?>" alt="">
                   </a>
                 </div>
 
                 <div class="col-md-9">
-                  <h3><?=$key['title'] ?></h3>
-                  <p><?=$key['description'] ?></p>
-                  <a class="btn btn-primary" href="/posts/view/<?php echo $key['id']; ?>">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
+                  <h3><?=$post['title'] ?></h3>
+                  <p><?=$post['description'] ?></p>
+                  <a class="btn btn-primary" href="/posts/view/<?php echo $post['id']; ?>">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
 
               </div>
