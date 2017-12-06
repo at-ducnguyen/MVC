@@ -48,9 +48,9 @@
         }
 
 
-        public function order()
+        public function orderBy($field,$type)
         {
-            $sql = "SELECT * FROM {$this->table} ORDER BY created_at DESC";
+            $sql = "SELECT * FROM {$this->table} ORDER BY {$field} {$type}";
             $stmt = static::$db->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
@@ -68,6 +68,22 @@
             }      
         }
 
+            public static function isAdmin()
+        {
+            if(Session::get('username')) {
+            $user = Session::get('username');
+            $sql = "SELECT * FROM users WHERE username='$user'";
+             $stmt = static::$db->prepare($sql); 
+             $stmt->execute();
+             $result = $stmt->fetch();
+             if($result['role']==1){return true;}
+             else{return false;}
+            }      
+        }
+
+
+
+       
 
     public function getUsername()
         {

@@ -6,15 +6,13 @@ display_errors();
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
+  <title>Asian Tech Internship</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-
-  <title> Asian Tech Internship</title>
-
   <!-- Bootstrap Core CSS -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/shop-homepage.css" rel="stylesheet">
@@ -58,8 +56,14 @@ display_errors();
 
 
         <ul class="nav navbar-nav pull-right">
+          <?php if(!isAdmin()): ?>
+          <li>
+              <a href="/users/list">
+                <i class ="glyphicon glyphicon-th-list"></i> Member List
 
-
+              </a>
+            </li>
+          <?php endif; ?>
           <?php  if (isGuest()): ?>
             <li>
               <a href="/users/signup">Đăng ký <i class="glyphicon glyphicon-edit"></i></a>
@@ -73,7 +77,12 @@ display_errors();
               <li>
                 <a href="/posts/list">
                   <i class ="glyphicon glyphicon-th-list"></i> Quản lý bài viết
-
+                </a>
+              </li>
+            <?php elseif(!isGuest()): ?>
+              <li>
+                <a href="/posts/userpost">
+                  <i class ="glyphicon glyphicon-th-list"></i> Bài viết của tôi
                 </a>
               </li>
             <?php endif; ?>
@@ -83,6 +92,8 @@ display_errors();
 
               </a>
             </li>
+
+            
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

@@ -24,12 +24,19 @@
 	<thead>
 		<div class="row">
 			
-			<div class="pull-right" style="margin-right: 20px; margin-bottom: 10px"><a href="/posts/create"><button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Thêm mới </button></div></a> <br>
+			<div class="pull-right" style="margin-right: 20px; margin-bottom: 10px"><a href="/posts/create"><button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Đăng bài mới </button></div></a> <br>
 
 		</div>
 		
 	</thead>
 	<tbody>
+
+<?php if(!$userpost): ?>
+				<h4 style="color: red">Bạn chưa có bài viết nào trong danh sách !</h4>
+			<?php else: ?>
+
+
+
 		<tr>
 			<td class="text-primary" width="2%">STT</td>
 			<td class="text-primary" width="40%">Title</td>	
@@ -39,6 +46,7 @@
 		</tr>
 		<?php $i=1; ?>
 		<?php foreach($userpost as $post): ?>
+			
 		<tr>
 			<td><?=$i++; ?></td>
 			<td><?=$post['title']; ?></td>
@@ -56,8 +64,9 @@
 			
 			
 		</tr>
+	
 		<?php endforeach; ?>
-		
+		<?php endif; ?>
 	</tbody>
 </table>
 	</div>
