@@ -2,7 +2,7 @@
 	  <script type="text/javascript">
       function ConfirmDelete()
       {
-           return confirm('Are you sure?');
+           return confirm('Bạn có chắc chắn muốn xóa không?');
       }
   </script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -32,7 +32,7 @@
 			<td class="text-primary" width="20%">Action</td>
 		</tr>
 		<?php $i=1; ?>
-		<?php foreach($list as $post): ?>
+		<?php foreach($posts as $post): ?>
 		<tr>
 			<td><?=$i++; ?></td>
 			<td><?=mb_substr($post['title'],0,40).'...'; ?></td>

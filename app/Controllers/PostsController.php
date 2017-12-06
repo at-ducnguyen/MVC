@@ -13,7 +13,7 @@ class PostsController extends Controller
       header('Location:/users/login');
     }
     else {
-      
+
       if (isset($_POST['btn'])){
         $post = new Post();
         $data = array();
@@ -53,13 +53,13 @@ class PostsController extends Controller
   public function edit($id)
   {
     if (isGuest()){
-   header('Location:/users/login');
-    }
-    else {
+     header('Location:/users/login');
+   }
+   else {
     $model = new Post();
     $post = $model->find($id);
-        if (isset($_POST['btn'])){
-          $data = array();
+    if (isset($_POST['btn'])){
+      $data = array();
       $target_dir = "uploads/";
       $target_file = $target_dir . basename($_FILES["image"]["name"]);
       $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -71,120 +71,119 @@ class PostsController extends Controller
       move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
       $model->edit($data,$id);
       if(isAdmin()){
-      header('Location:/posts/list');
-          }
-        else{
-    header('Location:/posts/userpost');}
-      
+        header('Location:/posts/list');
+      }
+      else{
+        header('Location:/posts/userpost');}        
+      }
+      return view('posts.edit',$post);
     }
-    return view('posts.edit',$post);
+  }
+
+
+  public function list()
+  {
+    if(isGuest()){
+      header('Location:/');
     }
-}
-
-
-public function list()
-{
-  if(isGuest()){
-    header('Location:/');
-  }
-  else{
-    $posts = new Post();
-    $data['list'] = $posts->order();
-    return view('posts.list',$data);
-  }
-}
-
-
-
-public function index()
-{
-  $posts = new Post();
-  $data['list'] = $posts->order();
-  return view('posts.index',$data);
-}
-
-
-public function delete($id)
-{
-  if (isGuest()){
-   header('Location:/users/login');
-  }
-else {
-  $del = new Post();
-  $del->delete($id);
-  if (isAdmin()){header('Location:/posts/list');}
-  else { header('Location:/posts/userpost');} 
+    else{
+      $model = new Post();
+      $data['posts'] = $model->orderBy('created_at','DESC');
+      return view('posts.list',$data);
     }
-}
-
-public function category($category){
- $model = new Post();
- if($category==1){
-  $data['posts'] = $model->category('Thể thao');
-  view('posts.category',$data);
-}
-
-if($category==2){
-  $data['posts'] = $model->category('Giải trí');
-  view('posts.category',$data);
-}
-
-if($category==3){
-  $data['posts'] = $model->category('Kinh tế');
-  view('posts.category',$data);
-}
-
-if($category==4){
-  $data['posts'] = $model->category('Giáo dục');
-  view('posts.category',$data);
-}
-
-if($category==5){
-  $data['posts'] = $model->category('Sức khỏe');
-  view('posts.category',$data);
-}
-
-if($category==6) {
-  $data['posts'] = $model->category('Thế giới');
-  view('posts.category',$data);
-}
-
-else {
-  $data['error'] = "Không tìm thấy yêu cầu";
-  view('posts.category',$data);
-}
-}
-
-public function search(){
-  $posts = new Post();
-  if (isset($_POST['search'])){
-    $key = $_POST['key'];
-    $data['list'] = $posts->search($key);
-    view('posts.search',$data);
   }
-}
 
-public function userpost(){
-  $posts = new Post();
-  if (isGuest()){
-    header('Location:/users/login');
-  } 
-  else {
-  $data['userpost'] = $posts->userpost($posts->getUsername());
-  view('posts.userpost',$data);
-}
-}
 
-public function comment(){
-  if(isset($_POST['comment'])){
-    $comment = new Comment();
-    $data= array();
-    $data['username'] = $comment->getUsername();
-    $data['content'] = $_POST['content'];
-    $data['post_id'] = $_POST['post_id'];    
-    $id = $_POST['post_id'];
-    $comment->save($data);
-    header("Location:/posts/view/$id");
+
+  public function index()
+  {
+    $model = new Post();
+    $data['posts'] = $model->orderBy('created_at','DESC');
+    return view('posts.index',$data);
+  }
+
+
+  public function delete($id)
+  {
+    if (isGuest()){
+     header('Location:/users/login');
+   }
+   else {
+    $model = new Post();
+    $model->delete($id);
+    if (isAdmin()){header('Location:/posts/list');}
+      else { header('Location:/posts/userpost');} 
       }
     }
+
+    public function category($category){
+     $model = new Post();
+     if($category==1){
+      $data['posts'] = $model->category('Thể thao');
+      view('posts.category',$data);
+    }
+
+    if($category==2){
+      $data['posts'] = $model->category('Giải trí');
+      view('posts.category',$data);
+    }
+
+    if($category==3){
+      $data['posts'] = $model->category('Kinh tế');
+      view('posts.category',$data);
+    }
+
+    if($category==4){
+      $data['posts'] = $model->category('Giáo dục');
+      view('posts.category',$data);
+    }
+
+    if($category==5){
+      $data['posts'] = $model->category('Sức khỏe');
+      view('posts.category',$data);
+    }
+
+    if($category==6) {
+      $data['posts'] = $model->category('Thế giới');
+      view('posts.category',$data);
+    }
+
+    else {
+      $data['error'] = "Không tìm thấy yêu cầu";
+      view('posts.category',$data);
+    }
+  }
+
+  public function search(){
+    $posts = new Post();
+    if (isset($_POST['search'])){
+      $key = $_POST['key'];
+      $data['list'] = $posts->search($key);
+      view('posts.search',$data);
+    }
+  }
+
+  public function userpost(){
+    $posts = new Post();
+    if (isGuest()){
+      header('Location:/users/login');
+    } 
+    else {
+      $data['userpost'] = $posts->userpost($posts->getUsername());
+      view('posts.userpost',$data);
+    }
+  }
+
+  public function comment(){
+    if(isset($_POST['comment'])){
+      $comment = new Comment();
+      $data= array();
+      $data['username'] = $comment->getUsername();
+      $data['content'] = $_POST['content'];
+      $data['post_id'] = $_POST['post_id'];    
+      $id = $_POST['post_id'];
+      $comment->save($data);
+      header("Location:/posts/view/$id");
+    }
+  }
 }
