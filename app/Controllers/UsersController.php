@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\User;
 use App\Core\Session;
 
+
 class UsersController extends Controller
 {
   public function login()
@@ -31,17 +32,16 @@ class UsersController extends Controller
   {
     if (isGuest()) {
       if (isset($_POST['btn'])){
-        $user = new user();
+        $model = new user();
         $data = array();
         $data['username'] = $_POST['username'];
-
         $data['email'] = $_POST['email'];
         $data['password'] = $_POST['password'];
-        if ($user->validate($_POST['username'])){
-          $err['err'] = "Tên đăng nhập đã tồn tại";
-          view('users.signup',$err);
+        if ($model->checkUser($_POST['username'])){
+          $error['error'] = "Tên đăng nhập đã tồn tại";
+          view('users.signup',$error);
         }else {
-         $user->save($data);
+         $model->save($data);
          Session::set('username',$data['username']);
          header('Location:/');
        }
@@ -58,15 +58,15 @@ class UsersController extends Controller
   if(isset($_POST['login'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $user = new User();
-    if ($user->checkLogin($username,$password)){
-      $check = $user->checkLogin($username,$password);
-      Session::set('username',$check['username']);
+    $model = new User();
+    if ($model->checkLogin($username,$password)){
+      $user = $model->checkLogin($username,$password);
+      Session::set('username',$user['username']);
       header('Location:/');
     }
     else {
-      $err['err'] = 'Tên đăng nhập hoặc mật khẩu không đúng !';
-      view('users.login',$err);
+      $error['error'] = 'Tên đăng nhập hoặc mật khẩu không đúng !';
+      view('users.login',$error);
     }
   }
 
@@ -80,8 +80,8 @@ public function logout(){
 
 
 public function list(){
-  $users = new User();
-  $data['list'] = $users->all();
+  $model = new User();
+  $data['users'] = $model->orderBy('username','ASC');
   view('users.list',$data);
 }
 
@@ -91,8 +91,8 @@ public function delete($id)
     header('Location:/users/login');
 }
   else {
-  $user = new User();
-  $user->delete($id);
+  $model = new User();
+  $model->delete($id);
   header('Location:/users/list');
     }
 }
@@ -103,8 +103,8 @@ public function profile(){
    header('Location:/users/login');
     }
 else {
-  $user = new User();
-  $data['getUser'] = $user->getUser();
+  $model = new User();
+  $data['getUser'] = $model->getUser();
   view('users.profile',$data);
     }
 }
@@ -116,9 +116,9 @@ public function update()
     header('Location:/users/login');
   }
   else {
-    $user = new User();
-    $data['getUser'] = $user->getUser();
-    $id = $data['getUser']['id'];
+    $model = new User();
+    $data['user'] = $model->getUser();
+    $id = $data['user']['id'];
     
     if (isset($_POST['update'])){
 
@@ -129,11 +129,49 @@ public function update()
       $data['password'] = $_POST['password'];
       move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
       $data['avatar'] = $target_file;
-      $user->update($data,$id);
-      header('Location:/');
+      $model->update($data,$id);
+      header('Location:/users/profile');
     }
     view('users.update',$data);
   }
 }
+
+  public function edit($id){
+    if (!isAdmin()){
+    header('Location:/users/login');
+  }
+  else {
+    $model = new User();
+    $data['user'] = $model->find($id);
+    $id = $data['user']['id'];
+    if (isset($_POST['edit'])){
+      $data = array();
+      $data['username'] = $_POST['username'];
+      $data['password'] = $_POST['password'];
+      $data['email'] = $_POST['email'];
+      $data['role'] = $_POST['role'];
+      $model->edit($data,$id);
+      header('Location:/users/list');
+    }
+    view('users.edit',$data);
+  }
+
+}
+
+  public function info($id){
+    $model = new User();
+  $user = $model->find($id);
+    view('users.info',$user);
+  }
+public function member(){
+  if(admin()){
+    echo 'x';
+  }else{
+    echo 'y';
+  }
+}
+  
+    
+
 }
 
