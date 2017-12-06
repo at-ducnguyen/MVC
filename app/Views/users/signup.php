@@ -12,14 +12,14 @@
 		<div class="col-md-8">
 			<div class="panel panel-default">
 				<div class="panel-heading text-danger">Đăng ký tài khoản
-					<br><p class="text-danger"><?php echo isset($err) ? $err: ''; ?></p>
+					<br><p class="text-danger"><?php echo isset($error) ? $error: ''; ?></p>
 
 				</div>
 				<div class="panel-body">
 					<form action="signup" method="post" enctype="multipart/form-data" id="signupForm">
 						<div>
 							<label>Tên đăng nhập</label>
-							<input class="form-control" name="username" minlength="6" required >
+							<input class="form-control" name="username" minlength="5" required >
 						</div>
 						<br>
 						<div>

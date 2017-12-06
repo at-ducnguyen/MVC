@@ -8,7 +8,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
             <div class="panel-heading">Đăng nhập
-              <p><span class="text-danger"><?php echo isset($err) ? $err: ''; ?> </span></p></div>
+              <p><span class="text-danger"><?php echo isset($error) ? $error: ''; ?> </span></p></div>
              
             <div class="panel-body">
               <form action="/users/checkLogin" method="post">
