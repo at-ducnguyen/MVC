@@ -49,7 +49,7 @@
         </li>
 
         <li href="#" class="list-group-item menu1">
-          <a href="/posts"><i class="glyphicon glyphicon-home"></i> Trang chủ </a>
+          <a href="/"><i class="glyphicon glyphicon-home"></i> Trang chủ </a>
         </li>
 
         <li href="#" class="list-group-item menu1">

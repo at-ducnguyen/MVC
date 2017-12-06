@@ -13,13 +13,17 @@ class UsersController extends Controller
 
     }
     else {
-      header('Location:/posts');
+      header('Location:/');
 
     }
   }
 
   public function index(){
-    view('users.index');
+    if(isAdmin()){
+      header('Location:/users/list');
+    }
+    else
+    header('Location:/users/profile');
   }
 
 
@@ -39,13 +43,13 @@ class UsersController extends Controller
         }else {
          $user->save($data);
          Session::set('username',$data['username']);
-         header('Location:/posts');
+         header('Location:/');
        }
      }
      return view('users.signup');
     } 
     else {
-       header('Location:/posts');
+       header('Location:/');
    } 
  }
 
@@ -58,7 +62,7 @@ class UsersController extends Controller
     if ($user->checkLogin($username,$password)){
       $check = $user->checkLogin($username,$password);
       Session::set('username',$check['username']);
-      header('Location:/posts');
+      header('Location:/');
     }
     else {
       $err['err'] = 'Tên đăng nhập hoặc mật khẩu không đúng !';
@@ -71,7 +75,7 @@ class UsersController extends Controller
 public function logout(){
   
   Session::destroy();
-  header('Location:/posts');
+  header('Location:/');
 }  
 
 
@@ -126,7 +130,7 @@ public function update()
       move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
       $data['avatar'] = $target_file;
       $user->update($data,$id);
-      header('Location:/posts');
+      header('Location:/');
     }
     view('users.update',$data);
   }

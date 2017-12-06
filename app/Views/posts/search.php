@@ -49,6 +49,10 @@
         </li>
 
         <li href="#" class="list-group-item menu1">
+          <a href="/">Trang chủ </a>
+        </li>
+
+        <li href="#" class="list-group-item menu1">
           <a href="/posts/category/1">Thể thao </a>
         </li>
 
@@ -66,6 +70,10 @@
 
         <li href="#" class="list-group-item menu1">
           <a href="/posts/category/5">Sức khỏe </a>
+        </li>
+
+        <li href="#" class="list-group-item menu1">
+          <a href="/posts/category/6">Thế giới</a>
         </li>
 
         

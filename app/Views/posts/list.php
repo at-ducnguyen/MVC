@@ -25,17 +25,19 @@
 	<tbody>
 		<tr>
 			<td class="text-primary" width="2%">STT</td>
-			<td class="text-primary" width="40%">Title</td>	
+			<td class="text-primary" width="25%">Title</td>	
 			<td class="text-primary" width="20%">Author</td>
-			<td class="text-primary" width="18%">Ngày đăng</td>
+			<td class="text-primary" width="15%">Thể loại</td>
+			<td class="text-primary" width="15%">Ngày đăng</td>
 			<td class="text-primary" width="20%">Action</td>
 		</tr>
 		<?php $i=1; ?>
 		<?php foreach($list as $post): ?>
 		<tr>
 			<td><?=$i++; ?></td>
-			<td><?=$post['title'] ?></td>
+			<td><?=mb_substr($post['title'],0,40).'...'; ?></td>
 			<td><?=$post['author'] ?></td>
+			<td><?=$post['category'] ?></td>
 			<td><?=$post['created_at'] ?></td>
 			<td>
 				<a href="edit/<?=$post['id']?>" ><button><i class="glyphicon glyphicon-edit"></i></button></a>

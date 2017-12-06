@@ -8,8 +8,8 @@ class HomeController extends Controller
 {
   public function index()
   {
-    $posts = new Post();
-    $data['list'] = $posts->order();
+    $model = new Post();
+    $data['posts'] = $model->order();
     return view('home.index',$data);
   }
 

@@ -28,6 +28,7 @@ class Post extends Model
         $stmt->execute();    
     }
 
+    //get post of a category
     public function category($category){
         $sql = "SELECT * FROM posts WHERE category = '$category'";
         $stmt = static::$db->prepare($sql);
@@ -35,6 +36,7 @@ class Post extends Model
         return $stmt->fetchAll();
     }
 
+    //funtion seach post
     public function search($key){
         $sql = "SELECT * FROM posts WHERE title LIKE '%$key%'";
         $stmt = static::$db->prepare($sql); 
@@ -42,14 +44,15 @@ class Post extends Model
         return $stmt->fetchAll();
     }
 
-
-    public function same($key,$id){
-        $sql = "SELECT * FROM posts WHERE category='$key' AND id NOT IN ($id)";
+    //get related post (same category)
+    public function same($category,$id){
+        $sql = "SELECT * FROM posts WHERE category='$category' AND id NOT IN ($id)";
         $stmt = static::$db->prepare($sql); 
         $stmt->execute();
         return $stmt->fetchAll();
     }
 
+    //get post of user order by date time created at
     public function userpost($user){
         $sql = "SELECT * FROM posts WHERE author='$user' ORDER BY created_at";
         $stmt = static::$db->prepare($sql); 
@@ -57,6 +60,7 @@ class Post extends Model
         return $stmt->fetchAll();
     }
 
+    //get comment of a post
     public function comment($id){
         $sql = "SELECT * FROM comments WHERE post_id=$id";
         $stmt = static::$db->prepare($sql); 

@@ -6,7 +6,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <div class="col-md-8 col-md-offset-2">
 	<script src='/tinymce/tinymce.min.js'></script>
-	<h1 class="text-center">Thêm bài mới</h1>
+	<h1 class="text-center">Sửa bài viết</h1>
 	<script>
   tinymce.init({
     selector: '#content'
@@ -37,7 +37,7 @@
   <label for="sel1" class="col-sm-2 col-form-label">Thể loại:</label>
   <div class="col-sm-10">
   <select class="form-control" name="category">
-    <option>--- Chọn thể loại ---</option>
+    <option value="" disabled selected>--- Chọn thể loại ---</option>
     <option>Thể thao</option>
     <option>Giải trí</option>
     <option>Kinh Tế</option>
@@ -58,8 +58,8 @@
   
   <div class="form-group row">
     <div class="col-sm-10">
-      <input type="submit" name="btn" class="btn btn-success" value="Create">
-      <input type="reset" name="reset" value="Reset" class="btn btn-danger">
+      <input type="submit" name="btn" class="btn btn-danger" value="Chỉnh sửa">
+      
     </div>
   </div>
 </form>

@@ -9,24 +9,24 @@
       <!-- Blog Post -->
 
       <!-- Title -->
-      <h3 style="color: blue"><?=$postdetail['title']; ?></h3>
+      <h3 style="color: blue"><?=$post['title']; ?></h3>
 
       
       <p class="lead">
-        by <span style="font-weight: bold;color: red"><?=$postdetail['author']; ?></span>
+        by <span style="font-weight: bold;color: red"><?=$post['author']; ?></span>
       </p>
 
       
-      <img class="img-responsive" src="/<?=$postdetail['image']; ?>" alt="Image" style="height: 400px; width: 100%">
+      <img class="img-responsive" src="/<?=$post['image']; ?>" alt="Image" style="height: 400px; width: 100%">
 
       
       <br>
-      <p><span class="glyphicon glyphicon-time"></span> Posted on <?=$postdetail['created_at']; ?></p>
+      <p><span class="glyphicon glyphicon-time"></span> Posted on <?=$post['created_at']; ?></p>
       <hr>
 
       
       <p class="lead">
-        <?=$postdetail['content']; ?>
+        <?=$post['content']; ?>
       </p>
 
       <hr>
@@ -38,7 +38,7 @@
           <div class="form-group">
             <textarea class="form-control" name="content" rows="3" required oninvalid="this.setCustomValidity('Vui lòng kiểm tra thông tin trước khi gửi bình luận')"></textarea>
           </div>
-          <input type="hidden" name="post_id" value="<?=$postdetail['id'];?>">
+          <input type="hidden" name="post_id" value="<?=$post['id'];?>">
           <?php if(!isGuest()): ?>
           <input type="submit" class="btn btn-primary" value="Bình luận" name="comment">
         </form>
@@ -79,7 +79,7 @@
         <div class="panel-body">
 
           <!-- item -->
-          <?php foreach ($list as $post): ?>
+          <?php foreach ($posts as $post): ?>
 
             <div class="row" style="margin-top: 10px;">
               <div class="col-md-12">

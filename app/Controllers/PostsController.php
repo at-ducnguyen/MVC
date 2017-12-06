@@ -28,7 +28,7 @@ class PostsController extends Controller
         $data['author'] = Session::get('username');
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
         $post->save($data);
-        header('Location:/posts');
+        header('Location:/');
       }
 
       return view('posts.create');
@@ -39,11 +39,14 @@ class PostsController extends Controller
 
   public function view($id)
   {
-    $post = new Post();
-    $data['postdetail'] = $post->find($id);
-    $key = $data['postdetail']['category'];
-    $data['list'] = $post->same($key,$id);
-    $data['comments'] = $post->comment($id);
+    $model = new Post();
+    //get this post
+    $data['post'] = $model->find($id);
+    //get category of this post
+    $category = $data['post']['category']; 
+    //call funtion to get the related post
+    $data['posts'] = $model->same($category,$id);
+    $data['comments'] = $model->comment($id);
     return view('posts.view',$data);
   }
 
@@ -53,9 +56,10 @@ class PostsController extends Controller
    header('Location:/users/login');
     }
     else {
-    $post = new Post();
-    $detail = $post->find($id);
+    $model = new Post();
+    $post = $model->find($id);
         if (isset($_POST['btn'])){
+          $data = array();
       $target_dir = "uploads/";
       $target_file = $target_dir . basename($_FILES["image"]["name"]);
       $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -65,10 +69,15 @@ class PostsController extends Controller
       $data['content'] = stripslashes($_POST['content']);
       $data['image'] = $target_file;
       move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-      $post->edit($data,$id);
+      $model->edit($data,$id);
+      if(isAdmin()){
       header('Location:/posts/list');
+          }
+        else{
+    header('Location:/posts/userpost');}
+      
     }
-    return view('posts.edit',$detail);
+    return view('posts.edit',$post);
     }
 }
 
@@ -76,7 +85,7 @@ class PostsController extends Controller
 public function list()
 {
   if(isGuest()){
-    header('Location:/posts');
+    header('Location:/');
   }
   else{
     $posts = new Post();
@@ -104,7 +113,7 @@ else {
   $del = new Post();
   $del->delete($id);
   if (isAdmin()){header('Location:/posts/list');}
-  else { header('Location:/posts');} 
+  else { header('Location:/posts/userpost');} 
     }
 }
 

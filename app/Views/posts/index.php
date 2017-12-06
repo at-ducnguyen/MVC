@@ -63,7 +63,7 @@ padding: 0;
         </li>
 
         <li href="#" class="list-group-item menu1">
-          <a href="/posts">Trang chủ </a>
+          <a href="/">Trang chủ </a>
         </li>
 
         <li href="#" class="list-group-item menu1">

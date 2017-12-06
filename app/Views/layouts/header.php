@@ -17,10 +17,10 @@ display_errors();
 
   <!-- Bootstrap Core CSS -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Custom CSS -->
   <link href="/css/shop-homepage.css" rel="stylesheet">
   <link href="/css/my.css" rel="stylesheet">
+  
+  
 </head>
 
 <body>
@@ -35,7 +35,7 @@ display_errors();
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/posts"><i class="glyphicon glyphicon-home"></i> Trang Chủ</a>
+        <a class="navbar-brand" href="/"><i class="glyphicon glyphicon-home"></i> Trang Chủ</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -17,37 +17,34 @@
 
 <div class="panel panel-success">
 	<div class="panel-heading">
-		<h3 class="panel-title">Danh sách bài viết</h3>
+		<h3 class="panel-title">Bài viết của tôi</h3>
 	</div> 
 	<div class="panel-body">
 		<table class="table table-condensed table-hover">
 	<thead>
 		<div class="row">
 			
-			<div class="pull-right" style="margin-right: 20px; margin-bottom: 10px"><a href="/posts/add"><button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Thêm mới </button></div></a> <br>
+			<div class="pull-right" style="margin-right: 20px; margin-bottom: 10px"><a href="/posts/create"><button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Thêm mới </button></div></a> <br>
 
 		</div>
 		
 	</thead>
 	<tbody>
 		<tr>
-			<td class="text-primary" width="5%">STT</td>
-			<td class="text-primary" width="40%">Title</td>
-			<td class="text-primary" width="10%"> Thể loại</td>
-	
-			<td class="text-primary" width="20%">Ngày đăng</td>
-			
-			<td class="text-primary" width="25%">Action</td>
+			<td class="text-primary" width="2%">STT</td>
+			<td class="text-primary" width="40%">Title</td>	
+			<td class="text-primary" width="15%">Thể loại</td>
+			<td class="text-primary" width="15%">Ngày đăng</td>
+			<td class="text-primary" width="20%">Action</td>
 		</tr>
 		<?php $i=1; ?>
 		<?php foreach($userpost as $post): ?>
 		<tr>
 			<td><?=$i++; ?></td>
-			<td><?=$post['title'] ?></td>
+			<td><?=$post['title']; ?></td>
+			
 			<td><?=$post['category'] ?></td>
-			
 			<td><?=$post['created_at'] ?></td>
-			
 			
 			<td>
 			<a href="edit/<?=$post['id']?>" ><button><i class="glyphicon glyphicon-edit"></i></button></a>

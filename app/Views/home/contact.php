@@ -1,6 +1,6 @@
 
  <?php 
-include_once '../app/Views/layouts/header.php';
+template('header.php');
  ?>
 
     <!-- Page Header -->
@@ -43,7 +43,7 @@ include_once '../app/Views/layouts/header.php';
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <label>Số điện thoại</label>
-                <input type="tel" class="form-control" placeholder="Số điện thoại liên hệ" name="phone" required>
+                <input type="number" class="form-control" placeholder="Số điện thoại liên hệ" name="phone" required>
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -68,5 +68,5 @@ include_once '../app/Views/layouts/header.php';
 
     <!-- Footer -->
      <?php 
-include_once '../app/Views/layouts/footer.php';
+template('footer.php');
  ?>

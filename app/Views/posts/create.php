@@ -36,8 +36,8 @@
   <div class="form-group row">
   <label for="sel1" class="col-sm-2 col-form-label">Thể loại:</label>
   <div class="col-sm-10">
-  <select class="form-control" name="category">
-    <option>--- Chọn thể loại ---</option>
+  <select class="form-control" name="category" required>
+    <option value="" disabled selected>--- Chọn thể loại ---</option>
     <option>Thể thao</option>
     <option>Giải trí</option>
     <option>Kinh Tế</option>
@@ -59,7 +59,7 @@
   <div class="form-group row">
     <div class="col-sm-10">
       <input type="submit" name="btn" class="btn btn-success" value="Đăng bài">
-      <input type="reset" name="reset" value="Reset" class="btn btn-danger">
+      <input type="reset" name="reset" value="Làm lại" class="btn btn-danger">
     </div>
   </div>
 </form>

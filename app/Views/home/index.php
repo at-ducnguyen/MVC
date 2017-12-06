@@ -54,7 +54,7 @@ padding: 0;
         </li>
 
         <li href="#" class="list-group-item menu1">
-          <a href="/posts">Trang chủ </a>
+          <a href="/">Trang chủ </a>
         </li>
 
         <li href="#" class="list-group-item menu1">
@@ -89,23 +89,23 @@ padding: 0;
         </div>
         <div class="panel-body">
           <ul id="myList">
-          <?php foreach($list as $key): ?>
+          <?php foreach($posts as $post): ?>
             <li class="row-item row">
               <h3>
-                <span><?=$key['category'] ?></span> |
-                        <small>by <i style="color: red; font-weight: bold;"><?=$key['author']; ?></i> at </small>
-                        <small><i class="glyphicon glyphicon-time"></i> <?=date('F j, Y \a\t g:ia', strtotime( $key['created_at'] )); ?></small>
+                <span><?=$post['category'] ?></span> |
+                        <small>by <i style="color: red; font-weight: bold;"><?=$post['author']; ?></i> at </small>
+                        <small><i class="glyphicon glyphicon-time"></i> <?=date('F j, Y \a\t g:ia', strtotime( $post['created_at'] )); ?></small>
               </h3>
               <div class="col-md-12 border-right">
                 <div class="col-md-3">
                   <a href="chitiet.html">
-                    <img style="width: 320px; height: 150px" class="img-responsive" src="/<?=$key['image'] ?>" alt="">
+                    <img style="width: 320px; height: 150px" class="img-responsive" src="/<?=$post['image'] ?>" alt="">
                   </a>
                 </div>
                 <div class="col-md-9">
-                  <h4 style="color: blue;"><?=$key['title'] ?></h4>
-                  <p><?=$key['description'] ?></p>
-                  <a class="btn btn-primary" href="/posts/view/<?php echo $key['id']; ?>">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
+                  <h4 style="color: blue;"><?=$post['title'] ?></h4>
+                  <p><?=$post['description'] ?></p>
+                  <a class="btn btn-primary" href="/posts/view/<?php echo $post['id']; ?>">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
               </div>
               <div class="break"></div>

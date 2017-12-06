@@ -46,7 +46,7 @@ use App\Models\Model;
         }
     }
 
-
+    
 
     if (!function_exists('isAdmin')) {
         /**
