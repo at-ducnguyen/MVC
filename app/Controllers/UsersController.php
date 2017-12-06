@@ -59,8 +59,8 @@ class UsersController extends Controller
     $username = $_POST['username'];
     $password = $_POST['password'];
     $model = new User();
-    if ($model->checkLogin($username,$password)){
-      $user = $model->checkLogin($username,$password);
+    $user = $model->checkLogin($username,$password);
+    if ($user){
       Session::set('username',$user['username']);
       header('Location:/');
     }
@@ -104,7 +104,7 @@ public function profile(){
     }
 else {
   $model = new User();
-  $data['getUser'] = $model->getUser();
+  $data['user'] = $model->getUser();
   view('users.profile',$data);
     }
 }
