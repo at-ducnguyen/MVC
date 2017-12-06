@@ -27,7 +27,7 @@ class User extends Model
            
     }
 
-    public function validate($user){
+    public function checkUser($user){
         $sql = "SELECT * FROM {$this->table} WHERE username = '$user'";
             $stmt = static::$db->prepare($sql);
             $stmt->execute();
@@ -50,7 +50,23 @@ class User extends Model
 
     public function update($data,$id)
     {
-        $sql = "UPDATE users SET password='{$data['password']}',avatar='{$data['avatar']}' WHERE id=$id";
+        $sql = "UPDATE users SET 
+        password='{$data['password']}',
+        email='{$data['email']}',
+        avatar='{$data['avatar']}' 
+        WHERE id=$id";
+            $stmt = static::$db->prepare($sql);
+            $stmt->execute();
+    }
+
+    public function edit($data,$id)
+    {
+        $sql = "UPDATE users SET 
+        username='{$data['username']}',
+        password='{$data['password']}',
+        email='{$data['email']}',
+        role={$data['role']} 
+        WHERE id=$id";
             $stmt = static::$db->prepare($sql);
             $stmt->execute();
     }
