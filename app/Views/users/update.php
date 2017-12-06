@@ -16,12 +16,12 @@
 				    	<form action="/users/update" method="post" enctype="multipart/form-data">
 				    		<div>
 				    			<label>Họ tên</label>
-							  	<input class="form-control" name="username"  value="<?=$getUser['username']?>" readonly>
+							  	<input class="form-control" name="username"  value="<?=$user['username']?>" readonly>
 							</div>
 							<br>
 							<div>
 				    			<label>Email</label>
-							  	<input type="email" class="form-control" placeholder="Email" name="email" value="<?=$getUser['email']?>">
+							  	<input type="email" class="form-control" placeholder="Email" name="email" value="<?=$user['email']?>">
 							</div>
 							<br>	
 							<div>
@@ -33,7 +33,7 @@
 							
 							<div>
 				    			<label>Avatar</label>
-							  	<input type="file" class="form-control" name="avatar" required value="<?=$getUser['avatar']?>">
+							  	<input type="file" class="form-control" name="avatar" required value="<?=$user['avatar']?>">
 							</div>
 							<br>
 							<input type="submit" class="btn btn-success" value="Cập nhật" name="update">

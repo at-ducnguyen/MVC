@@ -5,33 +5,32 @@
  <script type="text/javascript">
       function ConfirmDelete()
       {
-           return confirm('Are you sure?');
+           return confirm('Bạn có chắc chắn muốn xóa không?');
       }
   </script>
 <div style="height:20px"></div>
 <div class=" col-md-12" >   
-<?php if (isAdmin()): ?>
 <div class="panel panel-success">
 	<div class="panel-heading">
 		<h3 class="panel-title">Danh sách User</h3>
 	</div> 
-	<div class="panel-body">
+	<div class="panel-body" style="margin-left: 100px">
 		<table class="table table-condensed table-hover">
 	<thead>
 		<div class="row">	
-			<p><?php echo isset($err) ? $err : ''; ?></p>	
+			<p><?php echo isset($error) ? $error : ''; ?></p>	
 		</div>
 	</thead>
 	<tbody>
 		<tr>
-			<td class="text-primary" width="10%">STT</td>
+			<td class="text-primary" width="5%">STT</td>
 			<td class="text-primary" width="20%">Username</td>	
 			<td class="text-primary" width="20%">Email</td>
 			<td class="text-primary" width="20%">Role</td>
-			<td class="text-primary" width="20%">Action</td>
+			<td class="text-primary" width="30%">Action</td>
 		</tr>
 		<?php $i=1; ?>
-		<?php foreach($list as $user): ?>
+		<?php foreach($users as $user): ?>
 			<?php  ?>
 		<tr>
 			<td><?=$i++; ?></td>
@@ -44,8 +43,12 @@
 			<td>Member</td>
 		<?php endif; ?>			
 			<td>
+				<?php if(!isAdmin()): ?>
+				<a href="info/<?=$user['id']?>"><button><i class="glyphicon glyphicon-eye-close"></i></button></a>
+			<?php else: ?>
 				<a href="edit/<?=$user['id']?>"><button><i class="glyphicon glyphicon-edit"></i></button></a>
 				<a href="delete/<?=$user['id']?>" onclick="return ConfirmDelete()"><button><i class="glyphicon glyphicon-trash"></i></button></a>
+			<?php endif; ?>
 			</td>			
 		</tr>
 		<?php endforeach; ?>		
@@ -53,6 +56,3 @@
 </table>
 	</div>
 </div>
-<?php else: ?>
-	<h2 class="text-center text-danger">Bạn không có quyền truy cập trang này. Hãy đăng nhập với quyền Admin !</h2>
-	<?php endif; ?>
