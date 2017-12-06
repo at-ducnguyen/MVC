@@ -1,7 +1,4 @@
 <?php template('header.php'); ?>
-
-
-
 <div class="container">    
 	<div class="jumbotron">
 		<div class="row">
@@ -14,7 +11,7 @@
 				</div>
 				<hr>
 				<ul class="container details">
-					<li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>+91 90000 00000</p></li>
+					<li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>+8412345678</p></li>
 					<li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span><?=$email?></p></li>
 					<li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>Hyderabad</p></li>
 					<li><p><span class="glyphicon glyphicon-new-window one" style="width:50px;"></span><a href="#">www.example.com</p></a> 
@@ -33,7 +30,5 @@
 
 		}
 	</style>
-
-
 	<div style="height: 120px"></div>
 	<?php template('footer.php'); ?>
