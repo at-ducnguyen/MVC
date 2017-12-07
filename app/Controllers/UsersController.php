@@ -150,8 +150,8 @@ public function edit($id){
   }
   else {
     $model = new User();
-    $data['user'] = $model->find($id);
-    $id = $data['user']['id'];
+    $user = $model->find($id);
+    $id = $user['id'];
     if (isset($_POST['edit'])){
       $data = array();
       $data['username'] = $_POST['username'];
@@ -161,7 +161,7 @@ public function edit($id){
       $model->edit($data,$id);
       header('Location:/users/list');
     }
-    view('users.edit',$data);
+    view('users.edit',$user);
   }
 
 }

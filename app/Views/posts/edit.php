@@ -37,13 +37,12 @@
   <label for="sel1" class="col-sm-2 col-form-label">Thể loại:</label>
   <div class="col-sm-10">
   <select class="form-control" name="category">
-    <option value="" disabled selected>--- Chọn thể loại ---</option>
-    <option>Thể thao</option>
-    <option>Giải trí</option>
-    <option>Kinh Tế</option>
-    <option>Giáo dục</option>
-    <option>Sức khỏe</option>
-    <option>Thế giới</option>
+    <option value="Thể thao" <?php if (($category)=='Thể thao') echo "selected"; ?> >Thể thao</option>
+    <option value="Giải trí" <?php if (($category)=='Giải trí') echo "selected"; ?>>Giải trí</option>
+    <option value="Kinh Tế" <?php if (($category)=='Kinh Tế') echo "selected"; ?>>Kinh Tế</option>
+    <option value="Giáo dục" <?php if (($category)=='Giáo dục') echo "selected"; ?>>Giáo dục</option>
+    <option value="Sức khỏe" <?php if (($category)=='Sức khỏe') echo "selected"; ?>>Sức khỏe</option>
+    <option value="Thế giới" <?php if (($category)=='Thế giới') echo "selected"; ?> >Thế giới</option>
   </select>
 </div>
 </div>
