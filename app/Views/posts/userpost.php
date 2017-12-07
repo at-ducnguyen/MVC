@@ -7,7 +7,7 @@
 	<script type="text/javascript">
 		function ConfirmDelete()
 		{
-			return confirm('Are you sure?');
+			return confirm('Bạn có chắc chắn muốn xóa bài viết này không?');
 		}
 	</script>
 	<div class="panel panel-success">

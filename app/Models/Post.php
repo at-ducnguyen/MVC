@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+use App\Core\Session;
 class Post extends Model
 {
     protected $table = 'posts';
@@ -53,7 +54,8 @@ class Post extends Model
     }
 
     //get post of user order by date time created at
-    public function userpost($user){
+    public function userpost(){
+        $user = Session::get('username');
         $sql = "SELECT * FROM posts WHERE author='$user' ORDER BY created_at";
         $stmt = static::$db->prepare($sql); 
         $stmt->execute();

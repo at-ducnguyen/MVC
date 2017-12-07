@@ -168,7 +168,7 @@ class PostsController extends Controller
       header('Location:/users/login');
     } 
     else {
-      $data['userpost'] = $posts->userpost($posts->getUsername());
+      $data['userpost'] = $posts->userpost();
       view('posts.userpost',$data);
     }
   }
