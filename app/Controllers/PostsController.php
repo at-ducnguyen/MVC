@@ -43,6 +43,10 @@ class PostsController extends Controller
     $model = new Post();
     //get this post
     $data['post'] = $model->find($id);
+    if($data['post']==NULL) {
+      $error['error'] = 'Không tìm thấy bài viết !';
+      view('home.error',$error);       
+    } else {
     //get category of this post
     $category = $data['post']['category']; 
     //call funtion to get the related post
@@ -50,6 +54,7 @@ class PostsController extends Controller
     $data['comments'] = $model->comment($id);
     return view('posts.view',$data);
   }
+}
 
   public function edit($id)
   {
