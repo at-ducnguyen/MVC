@@ -85,7 +85,7 @@ public function list($currentPage=0)
   $recordPerPage = 5; 
   $offset = $recordPerPage*$currentPage; 
   $data['users'] = $model->pagination($offset,$recordPerPage,'username','ASC'); 
-  $data['totalPage'] = ceil($model->count()/$recordPerPage) - 1; 
+  $data['totalPage'] = ceil($model->count()/$recordPerPage); 
   $data['currentPage'] = $currentPage;
   return view('users.list', $data); 
   }
@@ -93,7 +93,8 @@ public function list($currentPage=0)
 public function delete($id)
 {
  if (isGuest()){
-  header('Location:/users/login');
+  $error['error'] = 'Permission denied ! Bạn không có quyền truy cập trang này !';
+      view('home.error',$error);
 }
 else {
   $model = new User();
@@ -105,7 +106,8 @@ else {
 
 public function profile(){
   if (isGuest()){
-   header('Location:/users/login');
+   $error['error'] = 'Permission denied ! Bạn không có quyền truy cập trang này !';
+      view('home.error',$error);
  }
  else {
   $model = new User();
@@ -114,11 +116,11 @@ public function profile(){
 }
 }
 
-
 public function update()
 {
   if (isGuest()){
-    header('Location:/users/login');
+    $error['error'] = 'Permission denied ! Bạn không có quyền truy cập trang này !';
+      view('home.error',$error);
   }
   else {
     $model = new User();
@@ -151,7 +153,8 @@ public function update()
 
 public function edit($id){
   if (!isAdmin()){
-    header('Location:/users/login');
+    $error['error'] = 'Permission denied ! Bạn không có quyền truy cập trang này !';
+      view('home.error',$error);
   }
   else {
     $model = new User();
@@ -176,14 +179,6 @@ public function info($id){
   $user = $model->find($id);
   view('users.info',$user);
 }
-public function member(){
-  if(admin()){
-    echo 'x';
-  }else{
-    echo 'y';
-  }
-}
-
 
 
 }

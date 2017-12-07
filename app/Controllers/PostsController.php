@@ -10,7 +10,8 @@ class PostsController extends Controller
   public function create()
   {
     if (isGuest()){
-      header('Location:/users/login');
+      $error['error'] = 'Vui lòng đăng nhập để thực hiện chức năng đăng bài viết !';
+      view('home.error',$error);
     }
     else {
 
@@ -53,7 +54,8 @@ class PostsController extends Controller
   public function edit($id)
   {
     if (isGuest()){
-     header('Location:/users/login');
+     $error['error'] = 'Permission denied ! Bạn không có quyền truy cập trang này !';
+      view('home.error',$error);
    }
    else {
     $model = new Post();
@@ -85,14 +87,15 @@ class PostsController extends Controller
   public function list($currentPage=0)
   {
     if(isGuest()){
-      header('Location:/');
+      $error['error'] = 'Permission denied ! Bạn không có quyền truy cập trang này !';
+      view('home.error',$error);
     }
     else{
     $model = new Post();
   $recordPerPage = 6; 
   $offset = $recordPerPage*$currentPage; 
   $data['posts'] = $model->pagination($offset,$recordPerPage,'created_at','DESC'); 
-  $data['totalPage'] = ceil($model->count()/$recordPerPage) - 1; 
+  $data['totalPage'] = ceil($model->count()/$recordPerPage)-1; 
   $data['currentPage'] = $currentPage;
   return view('posts.list', $data); 
 }
@@ -105,7 +108,7 @@ class PostsController extends Controller
   $recordPerPage = 3; 
   $offset = $recordPerPage*$currentPage; 
   $data['posts'] = $model->pagination($offset,$recordPerPage,'created_at','DESC'); 
-  $data['totalPage'] = ceil($model->count()/$recordPerPage) - 1; 
+  $data['totalPage'] = ceil($model->count()/$recordPerPage)-1; 
   $data['currentPage'] = $currentPage;
   return view('posts.index', $data); 
   }
@@ -114,7 +117,8 @@ class PostsController extends Controller
   public function delete($id)
   {
     if (isGuest()){
-     header('Location:/users/login');
+     $error['error'] = 'Permission denied ! Bạn không có quyền truy cập trang này !';
+      view('home.error',$error);
    }
    else {
     $model = new Post();
@@ -174,7 +178,8 @@ class PostsController extends Controller
   public function userpost(){
     $model = new Post();
     if (isGuest()){
-      header('Location:/users/login');
+      $error['error'] = 'Permission denied ! Bạn không có quyền truy cập trang này !';
+      view('home.error',$error);
     } 
     else {
       $data['posts'] = $model->userpost();

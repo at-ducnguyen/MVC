@@ -59,7 +59,9 @@
                 if (isset($pathInfo[2])) {
                     $this->params = [$pathInfo[2]];
                 }
+                
             }
+
         }
 
         /**

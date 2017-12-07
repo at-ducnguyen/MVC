@@ -13,6 +13,12 @@ class HomeController extends Controller
     return view('home.index',$data);
   }
 
+  public function error()
+  {
+    
+    return view('home.error');
+  }
+
 
   public function about()
   {
