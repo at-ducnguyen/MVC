@@ -88,7 +88,7 @@
 
         <div class="panel-body">
           <?php if ($list) : ?>
-          <p style="color: red; font-weight: bold;"><?=$err?></p>
+          <p style="color: red; font-weight: bold;"><?= isset($err) ? $err : '';?></p>
           <?php foreach($list as $key): ?>
             <div class="row-item row">
               <h3>
