@@ -38,7 +38,10 @@ class HomeController extends Controller
   }
 
   public function test(){
-    view('home.test');
+    $model = new Post();
+   $posts = $model->pagination();
+    dd($posts);
+    //view('home.test');
   }
 
 }

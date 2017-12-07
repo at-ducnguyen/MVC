@@ -131,11 +131,22 @@ ul {
             <?php endforeach; ?>
           </ul>
           <hr>
-          <div class="col-md-offset-5">
+          
+          <nav aria-label="Page navigation example" style="text-align: center;">
+  <ul class="pagination">
+    <?php if($currentPage > 1 && $totalPage > 0) : ?>
+      <li class="page-item"><a class="page-link" href="/posts/index/<?=($currentPage-1)?>">Quay lại</a></li>
+    <?php endif; ?>
+    <?php for($i=1; $i<=$totalPage; $i++): ?>
+      <li class="page-item"><a class="page-link" href='/posts/index/<?=$i?>'><?=$i?></a> </li>
+    <?php endfor; ?>
+    <?php if($currentPage < $totalPage && $totalPage > 1): ?>
+      <li class="page-item"><a class="page-link" href="/posts/index/<?=($currentPage+1)?>"> Kế tiếp</a> </li>
+    <?php endif;?>
+  </ul>
+</nav>
 
-            <button id="loadMore" class="btn btn-success">Xem Thêm</button>
-            <button id="showLess" class="btn btn-danger">Quay Lại</button>
-          </div>
+         
         </div>
       </div>
     </div>

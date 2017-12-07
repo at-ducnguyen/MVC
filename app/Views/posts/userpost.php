@@ -9,6 +9,7 @@
 		{
 			return confirm('Bạn có chắc chắn muốn xóa bài viết này không?');
 		}
+		
 	</script>
 	<div class="panel panel-success">
 		<div class="panel-heading">
@@ -22,7 +23,7 @@
 					</div>		
 				</thead>
 				<tbody>
-					<?php if(!$userpost): ?>
+					<?php if(!$posts): ?>
 						<h4 style="color: red">Bạn chưa có bài viết nào trong danh sách !</h4>
 					<?php else: ?>
 						<tr>
@@ -33,7 +34,7 @@
 							<td class="text-primary" width="20%">Action</td>
 						</tr>
 						<?php $i=1; ?>
-						<?php foreach($userpost as $post): ?>			
+						<?php foreach($posts as $post): ?>			
 							<tr>
 								<td><?=$i++; ?></td>
 								<td><?=$post['title']; ?></td>			
@@ -42,6 +43,7 @@
 								<td>
 									<a href="edit/<?=$post['id']?>" ><button><i class="glyphicon glyphicon-edit"></i></button></a>
 									<a href="delete/<?=$post['id']?>" onclick="return ConfirmDelete()"><button><i class="glyphicon glyphicon-trash"></i></button></a>
+
 								</td>
 							</td>			
 						</tr>	

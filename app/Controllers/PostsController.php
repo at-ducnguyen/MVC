@@ -94,11 +94,15 @@ class PostsController extends Controller
   }
 
 
-  public function index()
+  public function index($currentPage=0)
   {
     $model = new Post();
-    $data['posts'] = $model->orderBy('created_at','DESC');
-    return view('posts.index',$data);
+  $recordPerPage = 5; 
+  $offset = $recordPerPage*$currentPage; 
+  $data['posts'] = $model->pagination($offset,$recordPerPage); 
+  $data['totalPage'] = ceil($model->count()/$recordPerPage); 
+  $data['currentPage'] = $currentPage;
+  return view('posts.index', $data); 
   }
 
 
@@ -163,12 +167,12 @@ class PostsController extends Controller
   }
 
   public function userpost(){
-    $posts = new Post();
+    $model = new Post();
     if (isGuest()){
       header('Location:/users/login');
     } 
     else {
-      $data['userpost'] = $posts->userpost();
+      $data['posts'] = $model->userpost();
       view('posts.userpost',$data);
     }
   }
@@ -185,4 +189,5 @@ class PostsController extends Controller
       header("Location:/posts/view/$id");
     }
   }
+
 }

@@ -15,6 +15,7 @@ display_errors();
   <meta name="author" content="">
   <!-- Bootstrap Core CSS -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/confirm.css" rel="stylesheet">
   <link href="/css/shop-homepage.css" rel="stylesheet">
   <link href="/css/my.css" rel="stylesheet">
   

@@ -70,9 +70,5 @@ class Post extends Model
         return $stmt->fetchAll();
     }
 
-
-
-
-
 }
 

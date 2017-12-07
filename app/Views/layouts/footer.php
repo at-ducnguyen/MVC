@@ -12,6 +12,7 @@
     <script src="/js/my.js"></script>
 <script src="/js/jquery.js"></script>
   <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/confirm.js"></script>
 </body>
 
 </html>

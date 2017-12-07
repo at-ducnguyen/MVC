@@ -12,7 +12,7 @@
      */
     class Application
     {
-        const DEFAULT_CONTROLLER = "\App\Controllers\HomeController";
+        const DEFAULT_CONTROLLER = "\App\Controllers\PostsController";
         const DEFAULT_ACTION = 'index';
 
         private $controller;
