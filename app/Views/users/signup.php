@@ -10,7 +10,7 @@
 		<div class="col-md-2">
 		</div>
 		<div class="col-md-8">
-			<div class="panel panel-default">
+			<div class="panel panel-info">
 				<div class="panel-heading text-danger">Đăng ký tài khoản
 					<br><p class="text-danger"><?php echo isset($error) ? $error: ''; ?></p>
 

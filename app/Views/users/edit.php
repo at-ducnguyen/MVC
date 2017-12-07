@@ -11,21 +11,21 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Thông tin tài khoản</div>
 				<div class="panel-body">
-					<form action="/users/edit/<?=$user['id']?>" method="post" enctype="multipart/form-data">
+					<form action="/users/edit/<?=$id?>" method="post" enctype="multipart/form-data">
 						<div>
 							<label>Họ tên</label>
-							<input class="form-control" name="username"  value="<?=$user['username']?>" require minlength="5">
+							<input class="form-control" name="username"  value="<?=$username?>" require minlength="5">
 						</div>
 						<br>
 						<div>
 							<label>Email</label>
-							<input type="email" class="form-control" placeholder="Email" name="email" value="<?=$user['email']?>">
+							<input type="email" class="form-control" placeholder="Email" name="email" value="<?=$email?>">
 						</div>
 						<br>	
 						<div>
 
 							<label>Đổi mật khẩu</label>
-							<input type="text" class="form-control" name="password" required value="<?=$user['password']?>">
+							<input type="text" class="form-control" name="password" required value="<?=$password?>">
 						</div>
 						<br>
 						<div>
