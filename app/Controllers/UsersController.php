@@ -82,7 +82,7 @@ public function logout(){
 public function list($currentPage=0)
   {
     $model = new User();
-  $recordPerPage = 10; 
+  $recordPerPage = 5; 
   $offset = $recordPerPage*$currentPage; 
   $data['users'] = $model->pagination($offset,$recordPerPage,'username','ASC'); 
   $data['totalPage'] = ceil($model->count()/$recordPerPage) - 1; 

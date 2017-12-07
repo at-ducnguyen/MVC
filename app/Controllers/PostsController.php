@@ -81,26 +81,31 @@ class PostsController extends Controller
   }
 
 
-  public function list()
+
+  public function list($currentPage=0)
   {
     if(isGuest()){
       header('Location:/');
     }
     else{
-      $model = new Post();
-      $data['posts'] = $model->orderBy('created_at','DESC');
-      return view('posts.list',$data);
-    }
+    $model = new Post();
+  $recordPerPage = 6; 
+  $offset = $recordPerPage*$currentPage; 
+  $data['posts'] = $model->pagination($offset,$recordPerPage,'created_at','DESC'); 
+  $data['totalPage'] = ceil($model->count()/$recordPerPage) - 1; 
+  $data['currentPage'] = $currentPage;
+  return view('posts.list', $data); 
+}
   }
 
 
   public function index($currentPage=0)
   {
     $model = new Post();
-  $recordPerPage = 5; 
+  $recordPerPage = 3; 
   $offset = $recordPerPage*$currentPage; 
   $data['posts'] = $model->pagination($offset,$recordPerPage,'created_at','DESC'); 
-  $data['totalPage'] = ceil($model->count()/$recordPerPage); 
+  $data['totalPage'] = ceil($model->count()/$recordPerPage) - 1; 
   $data['currentPage'] = $currentPage;
   return view('posts.index', $data); 
   }
