@@ -85,10 +85,10 @@ class Model
 
     }   
 
-
-    public function pagination($offset,$recordPerPage)
+    //pagination and ORDER by field, type = type (DESC,ASC)
+    public function pagination($offset,$recordPerPage,$field,$type)
     { 
-        $sql = "SELECT * from {$this->table} limit $offset,$recordPerPage"; 
+        $sql = "SELECT * from {$this->table} ORDER BY $field $type limit $offset,$recordPerPage"; 
         $stmt = static::$db->prepare($sql); 
         $stmt->execute(); 
         return $stmt->fetchAll(); 

@@ -2,8 +2,7 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <style>
-#myList li{ display:none;
-}
+
 
 ul {
   list-style-type: none;
@@ -119,7 +118,7 @@ ul {
                   </div>
 
                   <div class="col-md-9">
-                    <h4 style="color: blue;"><?=$post['title'] ?></h4>
+                    <a href="/posts/view/<?php echo $post['id']; ?>"><h4 style="color: blue;"><?=$post['title'] ?></h4></a>
                     <p><?=$post['description'] ?></p>
                     <a class="btn btn-primary" href="/posts/view/<?php echo $post['id']; ?>">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
                   </div>
@@ -135,13 +134,15 @@ ul {
           <nav aria-label="Page navigation example" style="text-align: center;">
   <ul class="pagination">
     <?php if($currentPage > 1 && $totalPage > 0) : ?>
-      <li class="page-item"><a class="page-link" href="/posts/index/<?=($currentPage-1)?>">Quay lại</a></li>
+      <li class="page-item"><a class="page-link" href="/posts/index/<?=($currentPage-1)?>">
+        <i class="glyphicon glyphicon-arrow-left"></i> Quay lại</a></li>
     <?php endif; ?>
     <?php for($i=1; $i<=$totalPage; $i++): ?>
       <li class="page-item"><a class="page-link" href='/posts/index/<?=$i?>'><?=$i?></a> </li>
     <?php endfor; ?>
     <?php if($currentPage < $totalPage && $totalPage > 1): ?>
-      <li class="page-item"><a class="page-link" href="/posts/index/<?=($currentPage+1)?>"> Kế tiếp</a> </li>
+      <li class="page-item"><a class="page-link" href="/posts/index/<?=($currentPage+1)?>"> Kế tiếp 
+        <i class="glyphicon glyphicon-arrow-right"></i></a> </li>
     <?php endif;?>
   </ul>
 </nav>
@@ -155,21 +156,5 @@ ul {
 </div>
 <!-- end Page Content -->
 
-<!-- Footer -->
-<script>
-  $(document).ready(function () {
-    size_li = $("#myList li").size();
-    x=4;
-    $('#myList li:lt('+x+')').show();
-    $('#loadMore').click(function () {
-      x= (x+4 <= size_li) ? x+4 : size_li;
-      $('#myList li:lt('+x+')').show();
-    });
-    $('#showLess').click(function () {
-      x=(x-4<0) ? 4 : x-4;
-      $('#myList li').not(':lt('+x+')').hide();
-    });
-  });
-</script>
 
 <?php template("footer.php"); ?>

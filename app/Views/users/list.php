@@ -53,6 +53,20 @@
 		</tr>
 		<?php endforeach; ?>		
 	</tbody>
+
 </table>
+<nav aria-label="Page navigation example" style="text-align: center;">
+  <ul class="pagination">
+    <?php if($currentPage > 1 && $totalPage > 0) : ?>
+      <li class="page-item"><a class="page-link" href="/users/list/<?=($currentPage-1)?>">Quay lại</a></li>
+    <?php endif; ?>
+    <?php for($i=1; $i<=$totalPage; $i++): ?>
+      <li class="page-item"><a class="page-link" href='/users/list/<?=$i?>'><?=$i?></a> </li>
+    <?php endfor; ?>
+    <?php if($currentPage < $totalPage && $totalPage > 1): ?>
+      <li class="page-item"><a class="page-link" href="/users/list/<?=($currentPage+1)?>"> Kế tiếp</a> </li>
+    <?php endif;?>
+  </ul>
+</nav>
 	</div>
-</div>
+</div
