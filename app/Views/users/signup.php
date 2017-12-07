@@ -1,7 +1,16 @@
 <?php template('header.php'); ?>
 <!-- Latest compiled and minified CSS & JS -->
 
+<style>
+	input:focus:invalid{
+    border:solid 2px #F5192F;
+}
 
+input:focus:valid{
+    border:solid 2px green;
+    background-color:#fff;
+}
+</style>
 <!-- Page Content -->
 <div class="container">
 	<!-- slider -->
@@ -19,7 +28,8 @@
 					<form action="signup" method="post" enctype="multipart/form-data" id="signupForm">
 						<div>
 							<label>Tên đăng nhập</label>
-							<input class="form-control" name="username" minlength="5" required >
+							<input class="form-control" id="username" name="username"
+							required minlength="5" oninvalid="this.setCustomValidity('Tên đăng nhập không được ít hơn 2 kí tự')" oninput="setCustomValidity('')">
 						</div>
 						<br>
 						<div>
@@ -49,7 +59,6 @@
 		<!-- end slide -->
 	</div>
 	<!-- end Page Content -->
-	</script>
 
 	<div style="height: 120px"></div>
 	<?php template('footer.php'); ?>

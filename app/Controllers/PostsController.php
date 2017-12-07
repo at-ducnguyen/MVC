@@ -46,7 +46,8 @@ class PostsController extends Controller
     if($data['post']==NULL) {
       $error['error'] = 'Không tìm thấy bài viết !';
       view('home.error',$error);       
-    } else {
+    } 
+    else {
     //get category of this post
     $category = $data['post']['category']; 
     //call funtion to get the related post

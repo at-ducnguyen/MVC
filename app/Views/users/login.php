@@ -1,4 +1,14 @@
     <?php template('header.php'); ?>
+    <style>
+  input:focus:invalid{
+    border:solid 2px #F5192F;
+}
+
+input:focus:valid{
+    border:solid 2px green;
+    background-color:#fff;
+}
+</style>
 
 <div class="container">
 
@@ -14,12 +24,12 @@
               <form action="/users/checkLogin" method="post">
               <div>
                   <label>Tên đăng nhập</label>
-                  <input type="text" class="form-control" placeholder="Username" name="username" required>
+                  <input type="text" class="form-control" placeholder="Tên đăng nhập" name="username" required oninvalid="this.setCustomValidity('Tên đăng nhập không được bỏ trống')" oninput="setCustomValidity('')">
               </div>
               <br>  
               <div>
                   <label>Mật khẩu</label>
-                  <input type="password" class="form-control" name="password" placeholder="Password" required>
+                  <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required oninvalid="this.setCustomValidity('Mật khẩu không được bỏ trống')" oninput="setCustomValidity('')">
               </div>
               <br>
               <input type="submit" name="login" class="btn btn-success" value="Đăng nhập">
