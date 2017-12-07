@@ -50,13 +50,27 @@ class User extends Model
 
     public function update($data,$id)
     {
-        $sql = "UPDATE users SET 
+        if ($data['avatar']==""){
+            $sql = "UPDATE users SET 
+        password='{$data['password']}',
+        email='{$data['email']}'
+        WHERE id=$id";
+        $stmt = static::$db->prepare($sql);
+            $stmt->execute();
+
+        }
+            else{
+                $sql = "UPDATE users SET 
         password='{$data['password']}',
         email='{$data['email']}',
         avatar='{$data['avatar']}' 
         WHERE id=$id";
-            $stmt = static::$db->prepare($sql);
+        $stmt = static::$db->prepare($sql);
             $stmt->execute();
+
+            }
+        
+            
     }
 
     public function edit($data,$id)

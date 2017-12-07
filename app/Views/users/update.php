@@ -16,24 +16,24 @@
 				    	<form action="/users/update" method="post" enctype="multipart/form-data">
 				    		<div>
 				    			<label>Họ tên</label>
-							  	<input class="form-control" name="username"  value="<?=$user['username']?>" readonly>
+							  	<input class="form-control" name="username" value="<?=$username?>" readonly>
 							</div>
 							<br>
 							<div>
 				    			<label>Email</label>
-							  	<input type="email" class="form-control" placeholder="Email" name="email" value="<?=$user['email']?>">
+							  	<input type="email" class="form-control" name="email" value="<?=$email?>">
 							</div>
 							<br>	
 							<div>
 								
 				    			<label>Đổi mật khẩu</label>
-							  	<input type="password" class="form-control" name="password" required>
+							  	<input type="password" class="form-control" name="password" required value="<?=$password?>">
 							</div>
 							<br>
 							
 							<div>
 				    			<label>Avatar</label>
-							  	<input type="file" class="form-control" name="avatar" required value="<?=$user['avatar']?>">
+							  	<input type="file" class="form-control" name="avatar">
 							</div>
 							<br>
 							<input type="submit" class="btn btn-success" value="Cập nhật" name="update">

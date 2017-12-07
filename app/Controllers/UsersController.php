@@ -24,7 +24,7 @@ class UsersController extends Controller
       header('Location:/users/list');
     }
     else
-    header('Location:/users/profile');
+      header('Location:/users/profile');
   }
 
 
@@ -47,9 +47,9 @@ class UsersController extends Controller
        }
      }
      return view('users.signup');
-    } 
-    else {
-       header('Location:/');
+   } 
+   else {
+     header('Location:/');
    } 
  }
 
@@ -73,7 +73,7 @@ class UsersController extends Controller
 }   
 
 public function logout(){
-  
+
   Session::destroy();
   header('Location:/');
 }  
@@ -87,26 +87,26 @@ public function list(){
 
 public function delete($id)
 {
-   if (isGuest()){
-    header('Location:/users/login');
+ if (isGuest()){
+  header('Location:/users/login');
 }
-  else {
+else {
   $model = new User();
   $model->delete($id);
   header('Location:/users/list');
-    }
+}
 }
 
 
 public function profile(){
   if (isGuest()){
    header('Location:/users/login');
-    }
-else {
+ }
+ else {
   $model = new User();
-  $data['user'] = $model->getUser();
+  $data = $model->getUser();
   view('users.profile',$data);
-    }
+}
 }
 
 
@@ -117,27 +117,35 @@ public function update()
   }
   else {
     $model = new User();
-    $data['user'] = $model->getUser();
-    $id = $data['user']['id'];
+    $user = $model->getUser();
+    $id = $user['id'];
     
     if (isset($_POST['update'])){
-
-      $target_dir = "uploads/";
-      $target_file = $target_dir . basename($_FILES["avatar"]["name"]);
-      $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
       $data = array();
       $data['password'] = $_POST['password'];
-      move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
-      $data['avatar'] = $target_file;
-      $model->update($data,$id);
-      header('Location:/users/profile');
-    }
-    view('users.update',$data);
+      $data['email'] = $_POST['email'];
+
+      if($_FILES['avatar']['name'] != ""){
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["avatar"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
+        $data['avatar'] = $target_file;
+        $model->update($data,$id);
+        header('Location:/users/profile');
+      }
+      else {
+        $data['avatar'] = "";
+        $model->update($data,$id);
+        header('Location:/users/profile');
+      }
+    }    
+    view('users.update',$user);
   }
 }
 
-  public function edit($id){
-    if (!isAdmin()){
+public function edit($id){
+  if (!isAdmin()){
     header('Location:/users/login');
   }
   else {
@@ -158,11 +166,11 @@ public function update()
 
 }
 
-  public function info($id){
-    $model = new User();
+public function info($id){
+  $model = new User();
   $user = $model->find($id);
-    view('users.info',$user);
-  }
+  view('users.info',$user);
+}
 public function member(){
   if(admin()){
     echo 'x';
@@ -170,8 +178,8 @@ public function member(){
     echo 'y';
   }
 }
-  
-    
+
+
 
 }
 

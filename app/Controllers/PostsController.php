@@ -94,7 +94,6 @@ class PostsController extends Controller
   }
 
 
-
   public function index()
   {
     $model = new Post();

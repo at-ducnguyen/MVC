@@ -37,4 +37,8 @@ class HomeController extends Controller
     view('home.contact');
   }
 
+  public function test(){
+    view('home.test');
+  }
+
 }
