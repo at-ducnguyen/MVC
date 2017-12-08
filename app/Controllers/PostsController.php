@@ -86,12 +86,10 @@ class PostsController extends Controller
         header('Location:/posts');
         }
         }        
-      
       return view('posts.edit',$post);
     }
   }
-
-
+  
   public function list($currentPage=0)
   {
     if(isGuest()){
@@ -131,9 +129,9 @@ class PostsController extends Controller
    else {
     $model = new Post();
     $model->delete($id);
-    if (isAdmin()){header('Location:/posts/list');}
-      else { header('Location:/posts/userpost');} 
-      }
+    header('Location:/');
+  } 
+      
     }
 
     public function category($category){

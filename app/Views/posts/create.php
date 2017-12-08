@@ -14,13 +14,13 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Tiêu đề</label>
     <div class="col-sm-10">
-		<input class="form-control" name="title" placeholder="Nhập tiêu đề bài viết" required>
+		<input class="form-control" name="title" placeholder="Nhập tiêu đề bài viết" required oninvalid="this.setCustomValidity('Không được để trống trường này')" oninput="setCustomValidity('')">
     </div>
   </div>
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Mô tả</label>
     <div class="col-sm-10">
-		<input class="form-control" name="description" placeholder="Nhập mô tả ngắn cho bài viết" required>
+		<input class="form-control" name="description" placeholder="Nhập mô tả ngắn cho bài viết" required oninvalid="this.setCustomValidity('Không được để trống trường này')" oninput="setCustomValidity('')">
     </div>
   </div>
 
@@ -33,7 +33,7 @@
   <div class="form-group row">
   <label for="sel1" class="col-sm-2 col-form-label">Thể loại:</label>
   <div class="col-sm-10">
-  <select class="form-control" name="category" required>
+  <select class="form-control" name="category" required oninvalid="this.setCustomValidity('Vui lòng chọn thể loại bài viết')" oninput="setCustomValidity('')">
     <option value="" disabled selected>--- Chọn thể loại ---</option>
     <option>Thể thao</option>
     <option>Giải trí</option>
@@ -47,7 +47,7 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Hình ảnh</label>
     <div class="col-sm-10">
-     		<input class="form-control" name="image" type="file" required>
+     		<input class="form-control" name="image" type="file" required oninvalid="this.setCustomValidity('Vui lòng chọn một hình ảnh cho bài viết')" oninput="setCustomValidity('')">
     </div>
   </div>
   

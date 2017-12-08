@@ -40,7 +40,8 @@ class UsersController extends Controller
         if ($model->checkUser($_POST['username'])){
           $error['error'] = "Tên đăng nhập đã tồn tại";
           view('users.signup',$error);
-        }else {
+        }
+        else {
          $model->save($data);
          Session::set('username',$data['username']);
          header('Location:/');
@@ -82,7 +83,7 @@ public function logout(){
 public function list($currentPage=0)
   {
     $model = new User();
-  $recordPerPage = 5; 
+  $recordPerPage = 8; 
   $offset = $recordPerPage*$currentPage; 
   $data['users'] = $model->pagination($offset,$recordPerPage,'username','ASC'); 
   $data['totalPage'] = ceil($model->count()/$recordPerPage)-1; 
@@ -135,7 +136,6 @@ public function update()
       if($_FILES['avatar']['name'] != ""){
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["avatar"]["name"]);
-        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
         $data['avatar'] = $target_file;
         $model->update($data,$id);

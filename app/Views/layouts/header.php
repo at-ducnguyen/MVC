@@ -1,6 +1,5 @@
 <?php 
 use App\Core\Session;
-display_errors();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,8 +52,6 @@ display_errors();
           <input type="submit" class="btn btn-default" name="search" value="Tìm kiếm">
         </form>
 
-
-
         <ul class="nav navbar-nav pull-right">
           <?php if(!isAdmin()): ?>
           <li>
@@ -92,8 +89,6 @@ display_errors();
 
               </a>
             </li>
-
-            
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

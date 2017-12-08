@@ -75,7 +75,7 @@
         {
             $controller = sprintf("\App\Controllers\%sController", ucfirst($controller));
             if (!class_exists($controller)) {
-                $error['error'] = 'Không tìm thấy yêu cầu ! Vui lòng xem lại đường dẫn!';
+                $error['error'] = 'Không tìm thấy Controller yêu cầu!';
                 view('home.error',$error);
             
             }
@@ -96,7 +96,7 @@
             $reflector = new \ReflectionClass($this->controller);
             if (!$reflector->hasMethod($action)) {
                 
-                $error['error'] = 'Không tìm thấy trang yêu cầu  !';
+                $error['error'] = 'Không tìm thấy action  !';
       view('home.error',$error);
             
             }
