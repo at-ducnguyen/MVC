@@ -72,6 +72,7 @@
           <h2 style="margin-top:0px; margin-bottom:0px;"> Tin Mới</h2>
         </div>
         <div class="panel-body">
+          <?php echo isset($error) ? $error :''; ?>
           <ul id="myList">
             <?php foreach($posts as $post): ?>
               <li class="row-item row">

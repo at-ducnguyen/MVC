@@ -96,15 +96,4 @@ if (!function_exists('view')) {
         }
       }
 
-      if (!function_exists('display_errors')) {
-        /**
-         * Debug helper function
-         *
-         */
-        function display_errors()
-        {
-          error_reporting(E_ALL | E_STRICT);
-          ini_set('display_errors', 'On');
-        }
-      }
       

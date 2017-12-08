@@ -1,18 +1,11 @@
 <?php
 namespace App\Controllers;
-use App\Models\Post;
 use App\Models\Contact;
 
 
 class HomeController extends Controller
 {
-  public function index()
-  {
-    $model = new Post();
-    $data['posts'] = $model->orderBy('created_at','DESC');
-    return view('home.index',$data);
-  }
-
+  
   public function error()
   {
     

@@ -1,6 +1,5 @@
 <?php
 namespace App\Controllers;
-use App\Models\User;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Core\Session;
@@ -89,7 +88,7 @@ class PostsController extends Controller
       return view('posts.edit',$post);
     }
   }
-  
+
   public function list($currentPage=0)
   {
     if(isGuest()){
