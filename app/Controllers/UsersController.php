@@ -83,9 +83,9 @@ public function list($currentPage=0)
   {
     $model = new User();
   $recordPerPage = 5; 
-  $offset = $recordPerPage*$curentPage; 
+  $offset = $recordPerPage*$currentPage; 
   $data['users'] = $model->pagination($offset,$recordPerPage,'username','ASC'); 
-  $data['totalPage'] = ceil($model->count()/$recordPerPage); 
+  $data['totalPage'] = ceil($model->count()/$recordPerPage)-1; 
   $data['currentPage'] = $currentPage;
   return view('users.list', $data); 
   }
