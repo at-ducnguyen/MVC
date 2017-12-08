@@ -99,7 +99,7 @@ class PostsController extends Controller
     else{
     $model = new Post();
   $recordPerPage = 6; 
-  $offset = $recordPerPage*$curentPage; 
+  $offset = $recordPerPage*$currentPage; 
   $data['posts'] = $model->pagination($offset,$recordPerPage,'created_at','DESC'); 
   $data['totalPage'] = ceil($model->count()/$recordPerPage); 
   $data['currentPage'] = $currentPage;
@@ -112,7 +112,7 @@ class PostsController extends Controller
   {
     $model = new Post();
   $recordPerPage = 5; 
-  $offset = $recordPerPage*($curentPage); 
+  $offset = $recordPerPage*$currentPage; 
   $data['posts'] = $model->pagination($offset,$recordPerPage,'created_at','DESC'); 
   $data['totalPage'] = ceil($model->count()/$recordPerPage); 
   $data['currentPage'] = $currentPage;
