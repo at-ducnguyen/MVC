@@ -50,7 +50,7 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Hình ảnh</label>
     <div class="col-sm-10">
-     <input class="form-control" name="image" type="file" required value="<?=$image?>">
+     <input class="form-control" name="image" type="file" value="<?=$image?>">
 
    </div>
  </div>

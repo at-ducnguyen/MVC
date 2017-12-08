@@ -68,26 +68,28 @@ class PostsController extends Controller
     $post = $model->find($id);
     if (isset($_POST['btn'])){
       $data = array();
-      $target_dir = "uploads/";
-      $target_file = $target_dir . basename($_FILES["image"]["name"]);
-      $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
       $data['title'] = $_POST['title'];
       $data['description'] = $_POST['description'];
       $data['category'] = $_POST['category'];
       $data['content'] = stripslashes($_POST['content']);
-      $data['image'] = $target_file;
+      if($_FILES['image']['name'] != ""){
+      $target_dir = "uploads/";
+      $target_file = $target_dir . basename($_FILES["image"]["name"]);
       move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+      $data['image'] = $target_file;
       $model->edit($data,$id);
-      if(isAdmin()){
-        header('Location:/posts/list');
-      }
-      else{
-        header('Location:/posts/userpost');}        
-      }
+        header('Location:/posts');
+        } 
+        else{
+          $data['image'] = "";
+          $model->edit($data,$id);
+        header('Location:/posts');
+        }
+        }        
+      
       return view('posts.edit',$post);
     }
   }
-
 
 
   public function list($currentPage=0)
