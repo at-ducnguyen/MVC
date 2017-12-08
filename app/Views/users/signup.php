@@ -29,12 +29,12 @@ input:focus:valid{
 						<div>
 							<label>Tên đăng nhập</label>
 							<input class="form-control" id="username" name="username"
-							required minlength="5" oninvalid="this.setCustomValidity('Tên đăng nhập không được ít hơn 2 kí tự')" oninput="setCustomValidity('')">
+							required oninvalid="this.setCustomValidity('Tên đăng nhập không được để trống')" oninput="setCustomValidity('')">
 						</div>
 						<br>
 						<div>
 							<label>Email</label>
-							<input type="email" class="form-control" name="email" required >
+							<input type="email" class="form-control" name="email" required oninvalid="this.setCustomValidity('Email không được để trống')" oninput="setCustomValidity('')">
 						</div>
 						<br>	
 						<div>
