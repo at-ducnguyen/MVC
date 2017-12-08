@@ -1,11 +1,11 @@
  <?php 
-template('header.php');
+ template('header.php');
  ?>
 
-    <div class="container">
+ <div class="container">
 
-      <!-- slider -->
-      <div class="row carousel-holder">
+  <!-- slider -->
+  <div class="row carousel-holder">
     <div class="col-md-12">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -33,15 +33,13 @@ template('header.php');
       </div>
     </div>
   </div>
-        <!-- end slide -->
+  <!-- end slide -->
 
-        <div class="space20"></div>
-
-
-        <div class="row main-left">
-            <div class="col-md-3 ">
-                <ul class="list-group" id="menu">
-                    <li href="showCatego" class="list-group-item menu1 active">
+  <div class="space20"></div>
+  <div class="row main-left">
+    <div class="col-md-3 ">
+      <ul class="list-group" id="menu">
+        <li href="showCatego" class="list-group-item menu1 active">
           Danh mục tin tức
         </li>
 
@@ -73,31 +71,28 @@ template('header.php');
           <a href="/posts/category/6">Thế giới</a>
         </li>
 
-                </ul>
-            </div>
-
-            <div class="col-md-9">
-              <div class="panel panel-default">            
-                <div class="panel-heading" style="background-color:#337AB7; color:white;" >
-                  <h2 style="margin-top:0px; margin-bottom:0px;">Giới thiệu</h2>
-                </div>
-
-                <div class="panel-body">
-                  <!-- item -->
-             <p>
-              Lorem ipLorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.sum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-
-              
-             </p>
-
-          </div>
-              </div>
-          </div>
-        </div>
-        <!-- /.row -->
+      </ul>
     </div>
 
-    <!-- Footer -->
-     <?php 
+    <div class="col-md-9">
+      <div class="panel panel-default">            
+        <div class="panel-heading" style="background-color:#337AB7; color:white;" >
+          <h2 style="margin-top:0px; margin-bottom:0px;">Giới thiệu</h2>
+        </div>
+
+        <div class="panel-body">
+          <!-- item -->
+          <p>
+            Lorem ipLorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.sum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+
+<!-- Footer -->
+<?php 
 template('footer.php');
- ?>
+?>

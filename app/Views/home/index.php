@@ -5,9 +5,9 @@
 }
 
 ul {
-list-style-type: none;
-margin: 0;
-padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 </style>
 <!-- Page Content -->
@@ -43,7 +43,7 @@ padding: 0;
   </div>
   <!-- end slide -->
   <br>
-      <br>
+  <br>
   <div class="space20"></div>
   <div class="row main-left">
     <div class="col-md-3 ">
@@ -89,34 +89,34 @@ padding: 0;
         </div>
         <div class="panel-body">
           <ul id="myList">
-          <?php foreach($posts as $post): ?>
-            <li class="row-item row">
-              <h3>
-                <span><?=$post['category'] ?></span> |
-                        <small>by <i style="color: red; font-weight: bold;"><?=$post['author']; ?></i> at </small>
-                        <small><i class="glyphicon glyphicon-time"></i> <?=date('F j, Y \a\t g:ia', strtotime( $post['created_at'] )); ?></small>
-              </h3>
-              <div class="col-md-12 border-right">
-                <div class="col-md-3">
-                  <a href="chitiet.html">
-                    <img style="width: 320px; height: 150px" class="img-responsive" src="/<?=$post['image'] ?>" alt="">
-                  </a>
+            <?php foreach($posts as $post): ?>
+              <li class="row-item row">
+                <h3>
+                  <span><?=$post['category'] ?></span> |
+                  <small>by <i style="color: red; font-weight: bold;"><?=$post['author']; ?></i> at </small>
+                  <small><i class="glyphicon glyphicon-time"></i> <?=date('F j, Y \a\t g:ia', strtotime( $post['created_at'] )); ?></small>
+                </h3>
+                <div class="col-md-12 border-right">
+                  <div class="col-md-3">
+                    <a href="chitiet.html">
+                      <img style="width: 320px; height: 150px" class="img-responsive" src="/<?=$post['image'] ?>" alt="">
+                    </a>
+                  </div>
+                  <div class="col-md-9">
+                    <h4 style="color: blue;"><?=$post['title'] ?></h4>
+                    <p><?=$post['description'] ?></p>
+                    <a class="btn btn-primary" href="/posts/view/<?php echo $post['id']; ?>">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
+                  </div>
                 </div>
-                <div class="col-md-9">
-                  <h4 style="color: blue;"><?=$post['title'] ?></h4>
-                  <p><?=$post['description'] ?></p>
-                  <a class="btn btn-primary" href="/posts/view/<?php echo $post['id']; ?>">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
-                </div>
-              </div>
-              <div class="break"></div>
-            </li>
-          <?php endforeach; ?>
+                <div class="break"></div>
+              </li>
+            <?php endforeach; ?>
           </ul>
           <hr>
           <div class="col-md-offset-5">
-<button id="loadMore" class="btn btn-success">Xem Thêm</button>
-<button id="showLess" class="btn btn-danger">Quay Lại</button>
-</div>
+            <button id="loadMore" class="btn btn-success">Xem Thêm</button>
+            <button id="showLess" class="btn btn-danger">Quay Lại</button>
+          </div>
         </div>
       </div>
     </div>
@@ -124,19 +124,18 @@ padding: 0;
   <!-- /.row -->
 </div>
 <script>
-$(document).ready(function () {
-size_li = $("#myList li").size();
-x=4;
-$('#myList li:lt('+x+')').show();
-$('#loadMore').click(function () {
-x= (x+4 <= size_li) ? x+4 : size_li;
-$('#myList li:lt('+x+')').show();
-});
-$('#showLess').click(function () {
-x=(x-4<0) ? 4 : x-4;
-$('#myList li').not(':lt('+x+')').hide();
-});
-});
+  $(document).ready(function () {
+    size_li = $("#myList li").size();
+    x=4;
+    $('#myList li:lt('+x+')').show();
+    $('#loadMore').click(function () {
+      x= (x+4 <= size_li) ? x+4 : size_li;
+      $('#myList li:lt('+x+')').show();
+    });
+    $('#showLess').click(function () {
+      x=(x-4<0) ? 4 : x-4;
+      $('#myList li').not(':lt('+x+')').hide();
+    });
+  });
 </script>
-
 <?php template("footer.php"); ?>

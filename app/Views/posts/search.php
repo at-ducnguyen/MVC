@@ -35,7 +35,7 @@
   </div>
   <!-- end slide -->
   <br>
-      
+  
 
   <div class="space20"></div>
 
@@ -88,32 +88,32 @@
 
         <div class="panel-body">
           <?php if ($list) : ?>
-          <p style="color: red; font-weight: bold;"><?= isset($err) ? $err : '';?></p>
-          <?php foreach($list as $key): ?>
-            <div class="row-item row">
-              <h3>
-                <a href="#"><?=$key['category'] ?></a> |
-                <small><a href="loaitin.html"><i><?='by '.$key['author']; ?></i></a></small>
-                
-              </h3>
-              <div class="col-md-12 border-right">
-                <div class="col-md-3">
-                  <a href="chitiet.html">
-                    <img style="width: 320px; height: 150px" class="img-responsive" src="/<?=$key['image'] ?>" alt="">
-                  </a>
+            <p style="color: red; font-weight: bold;"><?= isset($err) ? $err : '';?></p>
+            <?php foreach($list as $key): ?>
+              <div class="row-item row">
+                <h3>
+                  <a href="#"><?=$key['category'] ?></a> |
+                  <small><a href="loaitin.html"><i><?='by '.$key['author']; ?></i></a></small>
+                  
+                </h3>
+                <div class="col-md-12 border-right">
+                  <div class="col-md-3">
+                    <a href="chitiet.html">
+                      <img style="width: 320px; height: 150px" class="img-responsive" src="/<?=$key['image'] ?>" alt="">
+                    </a>
+                  </div>
+
+                  <div class="col-md-9">
+                    <h3><?=$key['title'] ?></h3>
+                    <p><?=$key['description'] ?></p>
+                    <a class="btn btn-primary" href="/posts/view/<?php echo $key['id']; ?>">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
+                  </div>
+
                 </div>
 
-                <div class="col-md-9">
-                  <h3><?=$key['title'] ?></h3>
-                  <p><?=$key['description'] ?></p>
-                  <a class="btn btn-primary" href="/posts/view/<?php echo $key['id']; ?>">Xem chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
-                </div>
-
+                <div class="break"></div>
               </div>
-
-              <div class="break"></div>
-            </div>
-          <?php endforeach; ?>  
+            <?php endforeach; ?>  
           <?php else: ?>
             <p style="font-weight: bold; color: red">Không tìm thấy kết quả nào</p>
           <?php endif; ?>

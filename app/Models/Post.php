@@ -7,7 +7,6 @@ class Post extends Model
 
     public function save($data)
     {
-
         $sql = "INSERT INTO posts(title,description,content,author,category,image) 
         VALUES ('{$data['title']}','{$data['description']}','{$data['content']}','{$data['author']}','{$data['category']}','{$data['image']}')";
         $stmt = static::$db->prepare($sql);   

@@ -43,7 +43,6 @@ class Model
         $sql = "SELECT {$fields} FROM {$this->table}";
         $stmt = static::$db->prepare($sql);
         $stmt->execute();
-
         return $stmt->fetchAll();
     }
 

@@ -43,11 +43,4 @@ class HomeController extends Controller
     view('home.contact');
   }
 
-  public function test(){
-    $model = new Post();
-   $posts = $model->pagination();
-    dd($posts);
-    //view('home.test');
-  }
-
 }
